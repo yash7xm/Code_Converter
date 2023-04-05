@@ -27,7 +27,7 @@ app.post('/', async (req,res) => {
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `"${message}" is it  written in any programming language respond with only one word yes or no`
+            content: `"${message}" is it a programming code respond with yes or no only`
          }]
     })
 
@@ -35,7 +35,7 @@ app.post('/', async (req,res) => {
     // console.log(check)
 
     if(check=='Yes.' || check=='Yes' || check == 'yes'){ 
-        console.log('i am in')
+        // console.log('i am in')
     const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
@@ -44,17 +44,17 @@ app.post('/', async (req,res) => {
          }]
     })
 
-    // console.log(completion.data.choices[0].message.content)
+    console.log(completion.data.choices[0].message.content)
     const finalResponse = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `${completion.data.choices[0].message.content}  is it  written in any programming language respond with only one word yes or no`
+            content: `${completion.data.choices[0].message.content}is it a programming code respond with yes or no only`
          }]
     })
 
     let final = finalResponse.data.choices[0].message.content
-    // console.log(final)
+    //  console.log(final)
 
     if(final == 'Yes.' || final == 'Yes' || final =='yes'){
         res.json({
