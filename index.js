@@ -12,7 +12,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const app = express();
-const port = 5050;
+const port = 8000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,11 +20,12 @@ app.use(cors());
 app.post('/', async (req,res) => {
     const { lang,message } = req.body;
     let check = ''
+    console.log(message)
     const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `'${message}' check this is code or not and only provide one word yes or no`
+            content: `"${message}" is it  written in any programming language respond with only one word yes or no`
     }]
     })
     check = completion.data.choices[0].message.content
@@ -43,7 +44,7 @@ app.post('/', async (req,res) => {
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `${completion.data.choices[0].message.content} check this is code or not and only provide one word yes or no`
+            content: `'${completion.data.choices[0].message.content}'  is it  written in any programming language respond with only one word yes or no`
     }]
     })
     let final = finalResponse.data.choices[0].message.content
