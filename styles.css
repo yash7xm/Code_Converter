@@ -1,0 +1,47 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.dropdown{
+    float: right;
+}
+
+/* Main styles */
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    width: 40rem;
+    height: 30rem;
+}
+
+/* Button styles */
+#convert-btn {
+    display: block;
+    margin: auto auto;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: #007bff;
+    height: 5rem;
+    text-align: center;
+}
