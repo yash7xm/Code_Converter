@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code_Converter</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Converter</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <div class="main">
-        <input type="text" name="message" id="message">
+    <div class="container">
+        <h1>Code Converter</h1>
+    <div class="dropdown">
         <select name="language" id="options">
             <option value="javascript">JavaScript</option>
             <option value="python">Python</option>
@@ -27,10 +30,23 @@
             <option value="scala">Scala</option>
             <option value="rust">Rust</option>
             <option value="c">C</option>
-          </select>
-        <button id="convert-btn">Convert</button>
-        <textarea name="result" id="result" cols="60" rows="30"></textarea>
+        </select>
     </div>
+    
+    <div class="main">
+        <div class="input">
+            <label for="message">Input:</label>
+            <textarea type="text" name="message" id="message"></textarea>
+        </div>
+        <button id="convert-btn">Convert</button>
+        <div class="output">
+            <label for="result">Result:</label>
+            <textarea name="result" id="result" cols="60" rows="30"></textarea>
+        </div>
+    </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
+
 </html>
