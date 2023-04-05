@@ -1,11 +1,13 @@
 body {
     font-family: sans-serif;
+    display: fixed;
 }
 
 h1 {
     text-align: center;
     font-size: 2rem;
-    margin: 0;
+    margin: 0.5rem;
+    color: #df7117be;
 }
 
 .dropdown{
@@ -16,6 +18,7 @@ h1 {
 .main {
     display: flex;
     justify-content: space-between;
+    margin-top: 3rem;
 }
 
 label {
@@ -29,19 +32,64 @@ textarea {
     padding: 0.5rem;
     border-radius: 0.25rem;
     border: 1px solid #ccc;
-    width: 40rem;
-    height: 30rem;
+    /* width: 40rem;
+    height: 30rem; */
 }
 
 /* Button styles */
 #convert-btn {
-    display: block;
+    display: flex;
     margin: auto auto;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 0.25rem;
     border: none;
-    background-color: #007bff;
-    height: 5rem;
+    background-color: #09294b81;
+    height: 2rem;
     text-align: center;
 }
+
+.loading-animation {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .loading-animation div {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: rgba(16, 66, 175, 0.808);
+    border-radius: 50%;
+    animation: loading 0.8s ease-in-out infinite;
+  }
+  
+  .loading-animation div:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .loading-animation div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-animation div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  .animation {
+    display: flex;
+    margin: auto auto;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }

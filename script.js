@@ -2,6 +2,7 @@ const givenCode = document.getElementById('message');
 const dropDown = document.getElementById('options');
 const button = document.getElementById('convert-btn');
 const res = document.getElementById('result');
+const animation = document.querySelector('.animation');
 let langToBeConverted = dropDown.value;
 
 dropDown.addEventListener('change', () => {
@@ -9,6 +10,12 @@ dropDown.addEventListener('change', () => {
 })
 res.readOnly = true;
 button.addEventListener('click', () => {
+    animation.innerHTML = `<div class="loading-animation">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            </div>`;
+  
     if(!givenCode.value){
         res.value = 'type something mf'
         return;
@@ -27,5 +34,6 @@ button.addEventListener('click', () => {
     .then(res => res.json())
     .then(data => {
         res.textContent = `${data.completion.content}`
+         animation.innerHTML = ''
     })
 })

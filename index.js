@@ -44,7 +44,7 @@ app.post('/', async (req,res) => {
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `'${completion.data.choices[0].message.content}'  is it  written in any programming language respond with only one word yes or no`
+            content: `${completion.data.choices[0].message.content}  is it  written in any programming language respond with only one word yes or no`
     }]
     })
     let final = finalResponse.data.choices[0].message.content
