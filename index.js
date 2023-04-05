@@ -18,18 +18,22 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/', async (req,res) => {
+
     const { lang,message } = req.body;
+
     let check = ''
-    console.log(message)
+    // console.log(message)
     const completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
             content: `"${message}" is it  written in any programming language respond with only one word yes or no`
-    }]
+         }]
     })
+
     check = completion.data.choices[0].message.content
-    console.log(check)
+    // console.log(check)
+
     if(check=='Yes.' || check=='Yes' || check == 'yes'){ 
         console.log('i am in')
     const completion = await openai.createChatCompletion({
@@ -37,35 +41,39 @@ app.post('/', async (req,res) => {
         messages: [{
             role: 'user', 
             content: `convert ${message} to ${lang} programming language and only provide the converted code and avoid adding any additional text.`
-    }]
+         }]
     })
-    console.log(completion.data.choices[0].message.content)
+
+    // console.log(completion.data.choices[0].message.content)
     const finalResponse = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
             content: `${completion.data.choices[0].message.content}  is it  written in any programming language respond with only one word yes or no`
-    }]
+         }]
     })
+
     let final = finalResponse.data.choices[0].message.content
-    console.log(final)
+    // console.log(final)
+
     if(final == 'Yes.' || final == 'Yes' || final =='yes'){
         res.json({
             completion: completion.data.choices[0].message
         })
     }
     else{
-    res.json({
-        completion: {content: `Not Possible to directly convert to ${lang}`}
-    })
-}
-}
-else{
-    console.log("i am in no")
+        res.json({
+            completion: {content: `Not Possible to directly convert to ${lang}`}
+        })
+    }
+  }
+ else{
+    // console.log("i am in no")
     res.json({
         completion: {content: 'Not a valid code'}
     })
-}
+ }
+
 })
 
 app.listen(port, () =>{

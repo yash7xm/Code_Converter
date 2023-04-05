@@ -10,9 +10,10 @@
 </head>
 
 <body>
+    <h1>Code Converter</h1>
     <div class="container">
-        <h1>Code Converter</h1>
-    <div class="dropdown">
+        <textarea type="text" name="message" id="message" class="textarea"></textarea>
+     <div class="dropdown">
         <select name="language" id="options">
             <option value="javascript">JavaScript</option>
             <option value="python">Python</option>
@@ -31,19 +32,23 @@
             <option value="rust">Rust</option>
             <option value="c">C</option>
         </select>
+     </div>
+     <textarea name="result" id="result" class="textarea"></textarea>
     </div>
     
-    <div class="main">
-        <div class="input">
+    <div class="container">
+        <!-- <div class="input">
             <label for="message">Input:</label>
             <textarea type="text" name="message" id="message" cols="50" rows="20"></textarea>
-        </div>
+        </div> -->
         <button id="convert-btn">Convert</button>
-        <div class="animation"></div>
-        <div class="output">
+        <div class="loading" id="loading">
+			<div class="loading-icon"></div>
+		</div>
+        <!-- <div class="output">
             <label for="result">Result:</label>
             <textarea name="result" id="result" cols="50" rows="20"></textarea>
-        </div>
+        </div> -->
     </div>
     </div>
     

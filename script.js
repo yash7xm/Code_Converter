@@ -2,7 +2,7 @@ const givenCode = document.getElementById('message');
 const dropDown = document.getElementById('options');
 const button = document.getElementById('convert-btn');
 const res = document.getElementById('result');
-const animation = document.querySelector('.animation');
+const loading = document.getElementById('loading');
 let langToBeConverted = dropDown.value;
 
 dropDown.addEventListener('change', () => {
@@ -10,14 +10,11 @@ dropDown.addEventListener('change', () => {
 })
 res.readOnly = true;
 button.addEventListener('click', () => {
-    animation.innerHTML = `<div class="loading-animation">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            </div>`;
+    loading.style.display = 'block';
   
     if(!givenCode.value){
         res.value = 'type something mf'
+        loading.style.display = 'none';
         return;
     }
     console.log('hi');
@@ -34,6 +31,9 @@ button.addEventListener('click', () => {
     .then(res => res.json())
     .then(data => {
         res.textContent = `${data.completion.content}`
-         animation.innerHTML = ''
+        loading.style.display = 'none';
+    })
+    .catch(error => {
+        res.textContent = `Some error has Occured on the server side please try again`
     })
 })
