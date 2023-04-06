@@ -5,7 +5,6 @@ const res = document.getElementById('result');
 const loading = document.getElementById('loading');
 let langToBeConverted = dropDown.value;
 
-
 dropDown.addEventListener('change', () => {
      langToBeConverted = dropDown.value;
 })
@@ -19,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch(`https://code-converter-us52.onrender.com/ask`, {
+    fetch('/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -27,7 +27,8 @@ app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, "./index.html"))
 })
 
-app.post('/ask', async (req,res) => {
+
+app.post('/', async (req,res) => {
 
     const { lang,message } = req.body;
 
@@ -86,6 +87,7 @@ app.post('/ask', async (req,res) => {
 
 })
 
-app.listen(port, () =>{
-    // console.log("port active")
-})
+app.listen(port, () => {
+    // console.log(`Server running at http://localhhost:${port}/`);
+  });
+  
