@@ -27,7 +27,7 @@ app.get("*", (req,res) => {
     res.sendFile(path.join(__dirname, "./index.html"))
 })
 
-app.post('/', async (req,res) => {
+app.post('/ask', async (req,res) => {
 
     const { lang,message } = req.body;
 
