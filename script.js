@@ -17,7 +17,7 @@ button.addEventListener('click', () => {
         loading.style.display = 'none';
         return;
     }
-    console.log('hi');
+    // console.log('hi');
     fetch('http://localhost:8000/', {
         method: 'POST',
         headers: {
