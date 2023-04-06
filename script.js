@@ -19,7 +19,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch(`https://code-converter-us52.onrender.com/`, {
+    fetch(`https://code-converter-us52.onrender.com/ask`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
