@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     console.log('hi');
-    fetch('https://localhost:8000/', {
+    fetch('http://localhost:8000/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
