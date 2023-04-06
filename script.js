@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch('/', {
+    fetch('https://codeconverter.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
