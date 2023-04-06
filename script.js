@@ -35,5 +35,6 @@ button.addEventListener('click', () => {
     })
     .catch(error => {
         res.textContent = `Some error has Occured on the server side please try again`
+        loading.style.display = 'none';
     })
 })

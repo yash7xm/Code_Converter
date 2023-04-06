@@ -3,6 +3,8 @@ import express from 'express';
 import bodyParser from "body-parser";
 import cors from 'cors';
 import dotenv from 'dotenv'
+import path from 'path'
+import __dirname  from 'path'
 dotenv.config()
 
 const configuration = new Configuration({
@@ -16,6 +18,13 @@ const port = 8000;
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.static(path.join('__dirname', '.')))
+
+app.get("*", (req,res) => {
+    res.sendFile(path.join('__dirname', "./index.html"))
+})
+
 
 app.post('/', async (req,res) => {
 
@@ -44,7 +53,7 @@ app.post('/', async (req,res) => {
          }]
     })
 
-    console.log(completion.data.choices[0].message.content)
+    // console.log(completion.data.choices[0].message.content)
     const finalResponse = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{
