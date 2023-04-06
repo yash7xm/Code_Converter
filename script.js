@@ -4,7 +4,7 @@ const button = document.getElementById('convert-btn');
 const res = document.getElementById('result');
 const loading = document.getElementById('loading');
 let langToBeConverted = dropDown.value;
-import BASE_URL from process.env.BASE_URL
+
 
 dropDown.addEventListener('change', () => {
      langToBeConverted = dropDown.value;
@@ -19,7 +19,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch(`${BASE_URL}/`, {
+    fetch(`https://code-converter-us52.onrender.com/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
