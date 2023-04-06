@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch('http://192.168.1.14:8000/', {
+    fetch('https://code-converter-us52.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
