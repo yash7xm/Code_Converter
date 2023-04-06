@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 import dotenv from 'dotenv'
 import path from 'path'
-import __dirname  from 'path'
+import { fileURLToPath } from "url";
 dotenv.config()
 
 const configuration = new Configuration({
@@ -13,16 +13,18 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static(path.join('__dirname', '.')))
+app.use(express.static(path.join(__dirname, '.')))
 
 app.get("*", (req,res) => {
-    res.sendFile(path.join('__dirname', ".index.html"))
+    res.sendFile(path.join(__dirname, "./index.html"))
 })
 
 
