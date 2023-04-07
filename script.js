@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     // console.log('hi');
-    fetch('https://codeconverter.onrender.com/', {
+    fetch('Access-Control-Allow-Origin','https://codeconverter.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
