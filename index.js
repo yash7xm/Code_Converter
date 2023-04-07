@@ -38,8 +38,8 @@ app.post('/', async (req,res) => {
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `"${message}" is it a programming code respond with yes or no only`
-         }]
+            content: `'${message}' Check if this is a programming code or not respond with only yes or no`
+        }]
     })
 
     check = completion.data.choices[0].message.content
@@ -60,7 +60,7 @@ app.post('/', async (req,res) => {
         model: 'gpt-3.5-turbo',
         messages: [{
             role: 'user', 
-            content: `${completion.data.choices[0].message.content}is it a programming code respond with yes or no only`
+            content: `'${completion.data.choices[0].message.content}' Check if this is a programming code or not respond with only yes or no`
          }]
     })
 
