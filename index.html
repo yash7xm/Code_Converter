@@ -6,42 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Converter</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <h1>Code Converter</h1>
     <div class="container">
         <textarea type="text" name="message" id="message" class="textarea"></textarea>
-     <div class="dropdown">
-        <select name="language" id="options">
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="java">Java</option>
-            <option value="csharp">C#</option>
-            <option value="php">PHP</option>
-            <option value="cplus">C++</option>
-            <option value="ruby">Ruby</option>
-            <option value="swift">Swift</option>
-            <option value="objective-c">Objective-C</option>
-            <option value="go">Go</option>
-            <option value="typescript">TypeScript</option>
-            <option value="sql">SQL</option>
-            <option value="kotlin">Kotlin</option>
-            <option value="scala">Scala</option>
-            <option value="rust">Rust</option>
-            <option value="c">C</option>
-        </select>
-     </div>
-     <textarea name="result" id="result" class="textarea"></textarea>
-    </div>
-    
-    <div class="container">
-        <button id="convert-btn">Convert</button>
-        <div class="loading" id="loading">
-			<div class="loading-icon"></div>
-		</div>
-    </div>
+        <div class="container-buttons">
+            <div class="dropdown">
+                <select name="language" id="options">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="php">PHP</option>
+                    <option value="cplus">C++</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="swift">Swift</option>
+                    <option value="objective-c">Objective-C</option>
+                    <option value="go">Go</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="sql">SQL</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="scala">Scala</option>
+                    <option value="rust">Rust</option>
+                    <option value="c">C</option>
+                </select>
+             </div>
+            <button id="convert-btn">Convert</button>
+        </div>
+        <textarea name="result" id="result" class="textarea"></textarea>
     </div>
     
     <script src="script.js"></script>
