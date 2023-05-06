@@ -2,22 +2,24 @@ const givenCode = document.getElementById('message');
 const dropDown = document.getElementById('options');
 const button = document.getElementById('convert-btn');
 const res = document.getElementById('result');
-const loading = document.getElementById('loading');
 let langToBeConverted = dropDown.value;
+let converted = false;
+
+var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()-=+[]{}|;:',.<>/?~`\"\\";
+
 
 dropDown.addEventListener('change', () => {
      langToBeConverted = dropDown.value;
 })
 res.readOnly = true;
 button.addEventListener('click', () => {
-    loading.style.display = 'block';
   
     if(!givenCode.value){
-        res.value = 'type something mf'
-        loading.style.display = 'none';
+        res.value = 'No Code Detected'
         return;
     }
-    // console.log('hi');
+    showBlurText();
+    console.log('hi');
     fetch('https://codeconverter.onrender.com/', {
         method: 'POST',
         headers: {
@@ -30,11 +32,32 @@ button.addEventListener('click', () => {
     })
     .then(res => res.json())
     .then(data => {
+        converted = true;
+        showBlurText();
         res.textContent = `${data.completion.content}`
-        loading.style.display = 'none';
     })
     .catch(error => {
-        res.textContent = `Some error has Occured on the server side please try again`
-        loading.style.display = 'none';
+        converted = true;
+        showBlurText();
+        res.textContent = `Some error has Occured on the server side please try again after sometime`
     })
 })
+
+let intervalId = null;
+
+function showBlurText() {
+  if (converted) {
+    res.textContent = '';
+    converted = false;
+    res.style.filter = 'blur(0px)';
+    clearInterval(intervalId); // Stop the interval
+    return;
+  }
+
+  intervalId = setInterval(() => {
+    res.textContent = givenCode.value.split('')
+      .map(letter => letters[Math.floor(Math.random() * 94)])
+      .join("");
+    res.style.filter = 'blur(2px)'; // Set the filter property
+  }, 100);
+}
