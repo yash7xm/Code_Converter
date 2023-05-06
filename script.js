@@ -19,7 +19,6 @@ button.addEventListener('click', () => {
         return;
     }
     showBlurText();
-    console.log('hi');
     fetch('https://codeconverter.onrender.com/', {
         method: 'POST',
         headers: {
@@ -50,7 +49,7 @@ function showBlurText() {
     res.textContent = '';
     converted = false;
     res.style.filter = 'blur(0px)';
-    clearInterval(intervalId); // Stop the interval
+    clearInterval(intervalId);
     return;
   }
 
@@ -58,6 +57,6 @@ function showBlurText() {
     res.textContent = givenCode.value.split('')
       .map(letter => letters[Math.floor(Math.random() * 94)])
       .join("");
-    res.style.filter = 'blur(2px)'; // Set the filter property
+    res.style.filter = 'blur(2px)';
   }, 100);
 }
