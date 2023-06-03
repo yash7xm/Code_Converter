@@ -18,7 +18,7 @@ button.addEventListener('click', () => {
         return;
     }
     showBlurText();
-    fetch('https://codeconverter.onrender.com/convert', {
+    fetch('/convert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
