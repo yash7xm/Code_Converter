@@ -7,7 +7,6 @@ let converted = false;
 
 var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()-=+[]{}|;:',.<>/?~`\"\\";
 
-
 dropDown.addEventListener('change', () => {
      langToBeConverted = dropDown.value;
 })
